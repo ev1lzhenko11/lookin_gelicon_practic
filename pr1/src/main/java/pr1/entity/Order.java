@@ -2,6 +2,8 @@ package pr1.entity;
 
 import javax.persistence.*;
 
+import java.util.Set;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -45,5 +47,14 @@ public class Order {
     @Column(name = "ORDER_REMARK", length = 1000)
     private String remark;
 
+    @OneToMany(mappedBy = "order")
+    private Set<OrderPos> orderPosses;
 
+    public Set<OrderPos> getOrderPosses() {
+        return orderPosses;
+    }
+
+    public void setOrderPosses(Set<OrderPos> orderPosses) {
+        this.orderPosses = orderPosses;
+    }
 }
