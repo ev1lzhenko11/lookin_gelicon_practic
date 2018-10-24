@@ -11,7 +11,9 @@ public class TestEntity {
 
     @Id
     @Column(name = "TEST_ID", nullable = false)
+
     @GeneratedValue(strategy = IDENTITY)
+
     private Integer id;
 
 

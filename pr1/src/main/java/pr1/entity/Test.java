@@ -37,9 +37,9 @@ public class Test {
         this.name = name;
     }
 
-    public Set<Test> getTesta() {
+   /* public Set<Test> getTesta() {
         return testa;
-    }
+    }*/
 
     public void setTesta(Set<Test> testa) {
         this.testa = testa;
