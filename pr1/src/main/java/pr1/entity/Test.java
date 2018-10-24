@@ -18,8 +18,9 @@ public class Test {
     @Column(name = "TEST2_NAME", nullable = false, length = 50)
     private String name;
 
-    @ManyToOne(targetEntity = TestEntity.class)
-    private Set<Test> testa;
+ @JoinColumn(name = "TEST_ID", nullable = false)
+ @ManyToOne(targetEntity = TestEntity.class)
+ private TestEntity testEntity;
 
     public Integer getId() {
         return id;
@@ -37,11 +38,11 @@ public class Test {
         this.name = name;
     }
 
-   /* public Set<Test> getTesta() {
-        return testa;
+   /* public TestEntity getTestEntity() {
+        return testEntity;
     }*/
 
-    public void setTesta(Set<Test> testa) {
-        this.testa = testa;
+    public void setTestEntity(TestEntity testEntity) {
+        this.testEntity = testEntity;
     }
 }

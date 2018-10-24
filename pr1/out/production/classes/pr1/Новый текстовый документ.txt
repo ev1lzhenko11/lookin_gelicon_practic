@@ -16,33 +16,35 @@ public class RController {
     private final TestRepository testRepository;
     private final Test2Repository test2Repository;
 
-    public RController(TestRepository testRepository, Test2Repository test2Repository) {
+    public RController(TestRepository testRepository, Test2Repository test2Repository){
         this.testRepository = testRepository;
         this.test2Repository = test2Repository;
     }
 
     @RequestMapping("Controller")
-    public TestEntity controller(@RequestParam(name = "name", defaultValue = "") String name) {
+    public TestEntity controller (@RequestParam(name = "name", defaultValue = "") String name){
 
         TestEntity ent = new TestEntity();
+
+
 
 
         ent.setName(name);
         ent.setTest2a(new HashSet<Test>());
 
 
-        for (Integer i = 0; i < 5; i++) {
-            Test t2 = new Test();
-            t2.setName("Ð½Ð°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ" + i.toString());
-            t2.setTestEntity(ent);
-            ent.getTest2a().add(t2);
+        for(Integer i = 0; i<5; i++){
+          Test t2 = new Test();
+          t2.setName("ÍÀÈÌÅÍÎÂÀÍÈÅ" + i.toString());
+          t2.setTesta(ent);
+          ent.getTest2a().add(t2);
 
         }
 
         testRepository.save(ent);
-        test2Repository.saveAll(ent.getTest2a());
+        test2Repository.save(ent);
 
-        return ent;
+
     }
 
 }
